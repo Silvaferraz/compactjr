@@ -58,7 +58,7 @@ function Navbar() {
               ['Serviços', '#services'],
               ['Portfólio', '#portfolio'],
               ['Processo', '#process'],
-              ['Equipe', '#equipe'],
+              ['Equipe', '#team'],
               ['Contato', '#contact'],
             ].map(([label, href]) => (
               <li className="nav-item" key={label}>
