@@ -20,53 +20,50 @@ const ContactCTA = () => {
   };
 
   const handleInputChange = (e) => {
-    const { name, value, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: files ? files[0] : value
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const validateForm = () => {
     const newErrors = {};
+
     if (!formData.nome.trim()) newErrors.nome = 'Nome é obrigatório';
     if (!formData.email.trim()) newErrors.email = 'Email é obrigatório';
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email inválido';
     if (!formData.objetivo) newErrors.objetivo = 'Objetivo é obrigatório';
     if (!formData.mensagem.trim()) newErrors.mensagem = 'Mensagem é obrigatória';
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    const data = new FormData();
-    data.append('nome', formData.nome);
-    data.append('email', formData.email);
-    data.append('objetivo', formData.objetivo);
-    data.append('mensagem', formData.mensagem);
+    const subject = `Contato pelo site - ${formData.objetivo}`;
+    const body = `
+Nome: ${formData.nome}
+Email: ${formData.email}
+Objetivo: ${formData.objetivo}
 
-    try {
-      const response = await fetch('https://formspree.io/f/xdaynvpg', {
-        method: 'POST',
-        body: data,
-        headers: {
-          Accept: 'application/json'
-        }
-      });
-      if (response.ok) {
-        window.alert('Mensagem enviada com sucesso!');
-        setShowForm(false);
-        setFormData({ nome: '', email: '', objetivo: '', mensagem: '' });
-        setErrors({});
-      } else {
-        window.alert('Erro ao enviar mensagem. Tente novamente.');
-      }
-    } catch (error) {
-      window.alert('Erro ao enviar mensagem. Tente novamente.');
-    }
+Mensagem:
+${formData.mensagem}
+    `.trim();
+
+    const mailtoLink = `mailto:contato@compactjr.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+    setFormData({
+      nome: '',
+      email: '',
+      objetivo: '',
+      mensagem: ''
+    });
+    setShowForm(false);
   };
 
   return (
@@ -75,28 +72,51 @@ const ContactCTA = () => {
         <div className="card-contact">
           <div className="text-center">
             <h2 className="section-title">Pronto para levar a sua empresa para outro nível?</h2>
-            <p className="section-text mb-4">Comece com uma SPA moderna, com visual forte e animações sutis que reforçam
+            <p className="section-text mb-4">
+              Comece com uma SPA moderna, com visual forte e animações sutis que reforçam
               a identidade da empresa.
             </p>
-            <button className="cta-contact" onClick={handleButtonClick}> Falar com a equipe</button>
+            <button className="cta-contact" onClick={handleButtonClick}>
+              Falar com a equipe
+            </button>
           </div>
         </div>
+
         {showForm && (
           <div className="card-contact-form" ref={formRef}>
             <form onSubmit={handleSubmit}>
               <div>
                 <label className="input-label">Nome:</label>
-                <input type="text" name="nome" value={formData.nome} onChange={handleInputChange} className="input-form col-12" />
+                <input
+                  type="text"
+                  name="nome"
+                  value={formData.nome}
+                  onChange={handleInputChange}
+                  className="input-form col-12"
+                />
                 {errors.nome && <span>{errors.nome}</span>}
               </div>
+
               <div>
                 <label className="input-label">Email:</label>
-                <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="input-form col-12" />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="input-form col-12"
+                />
                 {errors.email && <span>{errors.email}</span>}
               </div>
+
               <div>
                 <label className="input-label">Objetivo:</label>
-                <select name="objetivo" value={formData.objetivo} onChange={handleInputChange} className="input-form col-12">
+                <select
+                  name="objetivo"
+                  value={formData.objetivo}
+                  onChange={handleInputChange}
+                  className="input-form col-12"
+                >
                   <option value="">Selecione</option>
                   <option value="consulta">Consulta</option>
                   <option value="projeto">Projeto</option>
@@ -104,12 +124,23 @@ const ContactCTA = () => {
                 </select>
                 {errors.objetivo && <span>{errors.objetivo}</span>}
               </div>
+
               <div>
                 <label className="input-label">Mensagem:</label>
-                <textarea name="mensagem" value={formData.mensagem} onChange={handleInputChange} className="input-form col-12"></textarea>
+                <textarea
+                  name="mensagem"
+                  value={formData.mensagem}
+                  onChange={handleInputChange}
+                  className="input-form col-12"
+                />
                 {errors.mensagem && <span>{errors.mensagem}</span>}
               </div>
-              <div className="d-flex justify-content-end mt-3"><button className="form-btn" type="submit">Enviar</button></div>
+
+              <div className="d-flex justify-content-end mt-3">
+                <button className="form-btn" type="submit">
+                  Enviar
+                </button>
+              </div>
             </form>
           </div>
         )}
