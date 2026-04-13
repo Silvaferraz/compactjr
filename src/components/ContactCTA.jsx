@@ -7,8 +7,7 @@ const ContactCTA = () => {
     nome: '',
     email: '',
     objetivo: '',
-    mensagem: '',
-    arquivo: null
+    mensagem: ''
   });
   const [errors, setErrors] = useState({});
   const formRef = useRef(null);
@@ -48,7 +47,6 @@ const ContactCTA = () => {
     data.append('email', formData.email);
     data.append('objetivo', formData.objetivo);
     data.append('mensagem', formData.mensagem);
-    if (formData.arquivo) data.append('arquivo', formData.arquivo);
 
     try {
       const response = await fetch('https://formspree.io/f/xdaynvpg', {
@@ -59,15 +57,15 @@ const ContactCTA = () => {
         }
       });
       if (response.ok) {
-        console.log('Mensagem enviada com sucesso!');
+        window.alert('Mensagem enviada com sucesso!');
         setShowForm(false);
-        setFormData({ nome: '', email: '', objetivo: '', mensagem: '', arquivo: null });
+        setFormData({ nome: '', email: '', objetivo: '', mensagem: '' });
         setErrors({});
       } else {
-        console.log('Erro ao enviar mensagem. Tente novamente.');
+        window.alert('Erro ao enviar mensagem. Tente novamente.');
       }
     } catch (error) {
-      console.log('Erro ao enviar mensagem. Tente novamente.');
+      window.alert('Erro ao enviar mensagem. Tente novamente.');
     }
   };
 
@@ -110,10 +108,6 @@ const ContactCTA = () => {
                 <label className="input-label">Mensagem:</label>
                 <textarea name="mensagem" value={formData.mensagem} onChange={handleInputChange} className="input-form col-12"></textarea>
                 {errors.mensagem && <span>{errors.mensagem}</span>}
-              </div>
-              <div>
-                <label className="input-label">Arquivo (opcional):</label>
-                <input type="file" name="arquivo" onChange={handleInputChange} className="input-form col-12" />
               </div>
               <div className="d-flex justify-content-end mt-3"><button className="form-btn" type="submit">Enviar</button></div>
             </form>
