@@ -1,0 +1,24 @@
+#process {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(250, 248, 248, 0.91);
+    padding: 140px 0px;
+    position: relative;
+}
+.card-tech-process {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    min-height: 300px;
+    background: #5f30cfe7;
+    color: whtie;
+    text-align: center;
+    box-shadow: 1px 4px 6px rgba(70, 70, 70, 0.478);
+}
+.text-process {
+    font-family: var(--font-poppins);
+    font-size: 1.1rem;
+}

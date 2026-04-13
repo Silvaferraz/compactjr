@@ -1,0 +1,380 @@
+/* ══════════════════════════════════════════
+   Footer.css
+══════════════════════════════════════════ */
+
+.coliseu-footer {
+  background: var(--black2);
+  padding: 64px 0 0;
+}
+
+/* ── Topo ── */
+.footer-top {
+  padding-bottom: 48px;
+  /*   border-bottom: 1px solid var(--border); */
+}
+
+/* Brand */
+/* ── Logo Destaque ── */
+.footer-logo-wrapper {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.footer-logo {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.footer-logo img {
+  width: 100%;
+  max-width: 480px;
+  /* ajuste esse valor ao gosto */
+  height: auto;
+  object-fit: contain;
+  filter: brightness(1);
+  transition: filter 0.3s;
+}
+
+.footer-logo:hover img {
+  filter: brightness(1.1);
+}
+
+/* Brand */
+.footer-brand {}
+
+.footer-logo-name {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: var(--cream);
+}
+
+.footer-logo-sub {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--red);
+  text-transform: uppercase;
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: var(--cream-dim);
+  line-height: 1.65;
+  max-width: 280px;
+  margin-bottom: 20px;
+}
+
+/* ══════════════════════════════════════════
+   Redes Sociais - Ícones
+══════════════════════════════════════════ */
+
+.footer-social-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  flex-shrink: 0;
+}
+
+.footer-social-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(1);
+  transition: filter 0.3s;
+}
+
+.footer-social-icon:hover {
+  transform: translateY(-4px);
+}
+
+.footer-social-icon:hover img {
+  filter: brightness(1.3);
+}
+
+/* ── Container dos ícones ── */
+.footer-social-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.footer-social-container a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Garantir que fiquem na mesma linha ── */
+@media (max-width: 1200px) {
+  .footer-social-container {
+    gap: 0.8rem;
+  }
+
+  .footer-social-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .footer-social-icon img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-social-container {
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .footer-social-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .footer-social-icon img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-social-container {
+    gap: 0.6rem;
+  }
+
+  .footer-social-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-social-icon img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Colunas */
+.footer-col-titulo {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--red);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links li a {
+  font-size: 14px;
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links li a:hover {
+  color: aqua;
+}
+
+.footer-contato li a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Rodapé inferior */
+.footer-bottom {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-top {
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-bottom-links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-bottom-links a {
+  font-size: 13px;
+  color: var(--cream-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--cream);
+}
+
+/* Linha de créditos */
+.footer-credits {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.footer-credits p {
+  font-size: 13px;
+  color: var(--cream-dim);
+  margin: 0;
+}
+
+/* ── Crédito do Desenvolvedor ── */
+.footer-dev {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--cream-dim);
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.footer-dev a {
+  color: var(--green-light);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.footer-dev a:hover {
+  color: var(--cream);
+}
+
+/* ── Mobile: centralizar tudo ── */
+@media (max-width: 767px) {
+
+  .footer-brand,
+  .footer-col-titulo,
+  .footer-links,
+  .footer-contato,
+  .footer-desc {
+    text-align: center;
+  }
+
+  .footer-desc {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-contato li,
+  .footer-contato li a {
+    justify-content: center;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+  }
+
+  .footer-credits {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-dev {
+    justify-content: center;
+  }
+}
+
+/* ══════════════════════════════════════════
+   FAQ Accordion (Footer)
+══════════════════════════════════════════ */
+.footer-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cream);
+  text-align: left;
+  transition: color 0.2s;
+}
+
+.faq-question:hover {
+  color: var(--red-bright);
+}
+
+.faq-arrow {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--cream-dim);
+  transition: transform 0.3s, color 0.3s;
+}
+
+.faq-open .faq-arrow {
+  transform: rotate(180deg);
+  color: var(--red);
+}
+
+.faq-answer-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faq-open .faq-answer-wrap {
+  max-height: 200px;
+}
+
+.faq-answer {
+  font-family: var(--font-secondary);
+  font-size: 13px;
+  color: var(--cream-dim);
+  line-height: 1.65;
+  padding: 0 4px 14px;
+  margin: 0;
+}

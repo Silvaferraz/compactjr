@@ -1,0 +1,107 @@
+.app-shell {
+  background: 
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(168, 85, 247, 0.2) 0%,
+      rgba(124, 58, 237, 0.1) 30%,
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #11294a 0%,
+      #0b1c33 20%,
+      #12305a 40%,
+      #5417bd 70%,
+      #a855f7 100%
+    );
+  color: #eaf2ff;
+  min-height: 100vh;
+  box-shadow: inset 0 0 100px rgba(168, 85, 247, 0.15);
+}
+
+.navlink-text:hover {
+  color: #4fc8ff !important;
+  transition: color 0.3s;
+}
+
+.badge-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(0, 167, 219, 0.14);
+  color: #8edaff;
+  border: 1px solid rgba(0, 167, 219, 0.2);
+  font-size: 0.92rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00a7db, #7c3aed);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0092c2, #692bd0);
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+
+@media (max-width: 991px) {
+  section {
+    padding: 4.5rem 0;
+  }
+}
+
+.hero-logo-wrap {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.compact-logo-hero {
+  width: 100%;
+  max-width: 540px;
+  min-height: 10vh;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.28)) drop-shadow(0 0 24px rgba(0, 167, 219, 0.18));
+}
+
+.img-logo {
+  max-width: 140px;
+  height: auto;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .compact-logo-hero {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .compact-logo-hero {
+    max-width: 220px;
+  }
+}

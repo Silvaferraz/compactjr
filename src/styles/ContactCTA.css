@@ -1,0 +1,36 @@
+#contact {
+    background: white;
+    padding: 90px 0px;
+}
+.card-contact {
+    padding: 0;
+}
+
+.card-contact-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-label {
+    color: black;
+}
+
+.input-form {
+    padding: 12px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.146);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: rgb(248, 248, 248);
+    color: black;
+}
+
+.form-btn {
+    background: linear-gradient(135deg, #7c3aed);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
